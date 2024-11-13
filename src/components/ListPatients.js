@@ -50,12 +50,9 @@ export default function ListPatientsApp(){
                         )
                     }
                     </tbody>
-
-
                 </table>
             </div>
-            <button className="btn btn-success" onClick={getPatients}>Get Patients</button>
-
+            <button className="btn btn-success" onClick={getPatients}>Refresh</button>
         </div>
     )
 }
