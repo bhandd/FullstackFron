@@ -11,7 +11,7 @@ export default function PatientApp(){
                 <Routes>
                     <Route path="/" element={<MainPage />} />
 
-                    <Route path="/listPatients" element={<ListPatientsApp />}></Route>
+                    <Route path="/patients" element={<ListPatientsApp />}></Route>
                     <Route path="/updatePatient" element={<UpdatePatientApp />}></Route>
                 </Routes>
             </BrowserRouter>
