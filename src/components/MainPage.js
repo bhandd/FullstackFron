@@ -7,7 +7,7 @@ export default function MainPage() {
             <h1>Welcome to the Patient Management App</h1>
             <nav>
                 <Link to="/listPatients">
-                    <button>List Patient</button>
+                    <button>List Patients</button>
                 </Link>
                 <Link to="/updatePatient">
                     <button>Update Patient</button>

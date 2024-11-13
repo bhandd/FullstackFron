@@ -1,11 +1,11 @@
 import axios from "axios";
 import {useEffect, useState} from "react";
 
-export default function ListPatients(){
+export default function ListPatientsApp(){
     const [patients, setPatient] = useState([])
 
     useEffect(
-        () => ListPatients(), []
+        () => getPatients(), []
     )
 
     function getPatients() {
@@ -26,7 +26,7 @@ export default function ListPatients(){
     }
 
     return (
-        <div className="PatientApp">
+        <div className="ListPatientsApp">
             <h1>Patient List</h1>
             <div>
                 <table>
