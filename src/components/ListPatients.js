@@ -1,18 +1,16 @@
 import axios from "axios";
 import {useEffect, useState} from "react";
 
-export default function ListEmployees(){
-    const [employees, setEmployee] = useState([])
+export default function ListPatients(){
+    const [patients, setPatient] = useState([])
 
     useEffect(
-        () => getEmployees(), []
+        () => ListPatients(), []
     )
 
-
-
-    function getEmployees() {
-        console.log('Fetching Employeesssss')
-        axios.get('http://localhost:8080/employees')
+    function getPatients() {
+        console.log('Fetching Patients')
+        axios.get('http://localhost:8080/patients')
             .then((response) => onSuccess(response))
             .catch((response) => onError(response))
             .finally(() => console.log('Finally done'))
@@ -20,7 +18,7 @@ export default function ListEmployees(){
 
     function onSuccess(response) {
         console.log(response);
-        setEmployee(response.data);
+        setPatient(response.data);
     }
 
     function onError(response) {
@@ -28,8 +26,8 @@ export default function ListEmployees(){
     }
 
     return (
-        <div className="EmployeeApp">
-            <h1>Employees List</h1>
+        <div className="PatientApp">
+            <h1>Patient List</h1>
             <div>
                 <table>
                     <thead>
@@ -40,13 +38,13 @@ export default function ListEmployees(){
                     </thead>
                     <tbody>
                     {
-                        employees.map(
-                            employee => (
+                        patients.map(
+                            patient => (
 
-                                    <tr key={employee.id}>
+                                    <tr key={patient.id}>
 
-                                    <td>{employee.id}</td>
-                                    <td>{employee.name}</td>
+                                    <td>{patient.id}</td>
+                                    <td>{patient.name}</td>
                                 </tr>
                             )
                         )
@@ -56,7 +54,7 @@ export default function ListEmployees(){
 
                 </table>
             </div>
-            <button className="btn btn-success" onClick={getEmployees}>Get Employees</button>
+            <button className="btn btn-success" onClick={getPatients}>Get Patients</button>
 
         </div>
     )
