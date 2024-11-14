@@ -6,12 +6,17 @@ import ListPatientsApp from "./ListPatients";
 import UpdatePatientApp from "./UpdatePatient";
 import DeletePatientApp from "./DeletePatient";
 
+import FooterApp from "./FooterApp";
+import ListStaffApp from "./ListStaff";
+
 export default function PatientApp(){
     return (
-        <div className="PatientApp">
+        <div className="PatientApp container">
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<MainPage />} />
+
+                    <Route path="/listStaff" element={<ListStaffApp />}></Route>
 
                     <Route path="/createPatient" element={<CreatePatientApp />}></Route>
                     <Route path="/listPatients" element={<ListPatientsApp />}></Route>
@@ -19,6 +24,7 @@ export default function PatientApp(){
                     <Route path="/deletePatient" element={<DeletePatientApp />}></Route>
                 </Routes>
             </BrowserRouter>
+            <FooterApp/>
         </div>
     )
 }

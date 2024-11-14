@@ -1,14 +1,16 @@
 import axios from "axios";
-import {useEffect, useState} from "react";
+import React, { useState} from "react";
+import {Link} from "react-router-dom";
 
 export default function CreatePatientApp(){
 
     const [name, setName] = useState('');
-    const [age, setAge] = useState('');
-    const [condition, setCondition] = useState('');
-    function createPatient(newPatient) {
-        console.log('Creating new patient:', newPatient);
-        axios.post('http://localhost:8080/patients', newPatient)
+    const [role, setRole] = useState('');
+    const [social_number, setNumber] = useState('');
+
+    function createPatient(newUser) {
+        console.log('Creating new patient:', newUser);
+        axios.post('http://localhost:8080/patients', newUser)
             .then(response => onSuccess(response))
             .catch(error => onError(error))
             .finally(() => console.log('Finished creating patient'));
@@ -16,53 +18,51 @@ export default function CreatePatientApp(){
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        const newPatient = { name, age, condition };
-        createPatient(newPatient);
+        const newUser = { name, social_number, role };
+        createPatient(newUser);
 
 
         setName('');
-        setAge('');
-        setCondition('');
+        setRole('');
+        setNumber('');
     };
 
     return (
-        <div className="CreatePatientApp">
-            <h2>Create New Patient</h2>
+        <div className="CreatePatientApp content-box">
+            <h1>Create New User</h1>
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label>
-                        Name:
-                        <input
-                            type="text"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            required
-                        />
-                    </label>
+                    <label>Name:</label>
+                    <input
+                        type="text"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        required/>
                 </div>
                 <div>
-                    <label>
-                        Age:
-                        <input
-                            type="number"
-                            value={age}
-                            onChange={(e) => setAge(e.target.value)}
-                            required
-                        />
-                    </label>
+                    <label>Role:</label>
+                    <select
+                        value={role}
+                        onChange={(e) => setRole(e.target.value)}
+                        required>
+                        <option value="">Select Role</option>
+                        <option value="Patient">Patient</option>
+                        <option value="Doctor">Doctor</option>
+                        <option value="Personnel">Personnel</option>
+                    </select>
                 </div>
                 <div>
-                    <label>
-                        Condition:
-                        <input
-                            type="text"
-                            value={condition}
-                            onChange={(e) => setCondition(e.target.value)}
-                            required
-                        />
-                    </label>
+                    <label>Social number:</label>
+                    <input
+                        type="number"
+                        value={social_number}
+                        onChange={(e) => setNumber(e.target.value)}
+                        required/>
                 </div>
-                <button type="submit">Create Patient</button>
+                <button className="blue-button" type="submit">Create Patient</button>
+                <Link to="/">
+                    <button className="blue-button">Main menu</button>
+                </Link>
             </form>
         </div>
     );

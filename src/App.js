@@ -5,7 +5,7 @@ import PatientApp from "./components/PatientApp";
 function App() {
   return (
     <div className="App">
-     <PatientApp />
+        <PatientApp/>
     </div>
   );
 }

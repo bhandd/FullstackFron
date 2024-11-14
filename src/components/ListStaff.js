@@ -2,16 +2,16 @@ import axios from "axios";
 import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 
-export default function ListPatientsApp(){
-    const [patients, setPatient] = useState([])
+export default function ListStaffApp(){
+    const [staff, setStaff] = useState([])
 
     useEffect(
-        () => getPatients(), []
+        () => getStaff(), []
     )
 
-    function getPatients() {
+    function getStaff() {
         console.log('Fetching Patients')
-        axios.get('http://localhost:8080/patients')
+        axios.get('http://localhost:8080/staff')
             .then((response) => onSuccess(response))
             .catch((response) => onError(response))
             .finally(() => console.log('Finally done'))
@@ -19,7 +19,7 @@ export default function ListPatientsApp(){
 
     function onSuccess(response) {
         console.log(response);
-        setPatient(response.data);
+        setStaff(response.data);
     }
 
     function onError(response) {
@@ -29,7 +29,7 @@ export default function ListPatientsApp(){
     return (
         <div className="ListPatientsApp container">
             <header>
-                <h1>Patient List</h1>
+                <h1>Staff List</h1>
             </header>
             <main>
                 <div className="table-container">
@@ -38,6 +38,7 @@ export default function ListPatientsApp(){
                         <tr>
                             <th>id</th>
                             <th>name</th>
+                            <th>Role</th>
                             <th>Social number</th>
                             <th></th>
                             <th></th>
@@ -45,21 +46,20 @@ export default function ListPatientsApp(){
                         </thead>
                         <tbody>
                         {
-                            patients.map(
-                                patient => (
+                            staff.map(
+                                s => (
 
-                                        <tr key={patient.id}>
+                                    <tr key={s.id}>
 
-                                        <td>{patient.id}</td>
-                                        <td>{patient.name}</td>
-                                        <td>{patient.social_number}</td>
-
-                                            <td><Link to="/updatePatient">
-                                            <button className="update-btn">Update Patient</button>
+                                        <td>{s.id}</td>
+                                        <td>{s.name}</td>
+                                        <td>{s.role}</td>
+                                        <td>{s.social_number}</td>
+                                        <td><Link to="/">
+                                            <button className="update-btn">Update Staff</button>
                                         </Link></td>
-
-                                        <td><Link to={`/deletePatient/${patient.id}`}>
-                                            <button className="delete-btn">Delete Patient</button>
+                                        <td><Link to="/">
+                                            <button className="delete-btn">Delete Staff</button>
                                         </Link></td>
                                     </tr>
                                 )
