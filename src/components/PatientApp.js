@@ -8,6 +8,7 @@ import DeletePatientApp from "./DeletePatient";
 
 import FooterApp from "./FooterApp";
 import ListStaffApp from "./ListStaff";
+import DeleteSuccessfulApp from "./DeleteSuccessful";
 
 export default function PatientApp(){
     return (
@@ -20,8 +21,9 @@ export default function PatientApp(){
 
                     <Route path="/createPatient" element={<CreatePatientApp />}></Route>
                     <Route path="/listPatients" element={<ListPatientsApp />}></Route>
-                    <Route path="/updatePatient" element={<UpdatePatientApp />}></Route>
+                    <Route path="/updatePatient/:id" element={<UpdatePatientApp />}></Route>
                     <Route path="/deletePatient" element={<DeletePatientApp />}></Route>
+                    <Route path="/deleteSuccessful" element={<DeleteSuccessfulApp />}></Route>
                 </Routes>
             </BrowserRouter>
             <FooterApp/>

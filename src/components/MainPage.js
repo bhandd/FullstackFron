@@ -13,14 +13,8 @@ export default function MainPage() {
                 <Link to="/listPatients">
                     <button className="blue-button">List Patients</button>
                 </Link>
-                <Link to="/updatePatient">
-                    <button className="blue-button">Update Patient</button>
-                </Link>
                 <Link to="/createPatient">
                     <button className="blue-button">Create Patient</button>
-                </Link>
-                <Link to="/deletePatient">
-                    <button className="blue-button">Delete Patient</button>
                 </Link>
             </nav>
         </div>

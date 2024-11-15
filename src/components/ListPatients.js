@@ -1,9 +1,10 @@
 import axios from "axios";
 import React, {useEffect, useState} from "react";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 export default function ListPatientsApp(){
-    const [patients, setPatient] = useState([])
+    const [patients, setPatient] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(
         () => getPatients(), []
@@ -15,6 +16,21 @@ export default function ListPatientsApp(){
             .then((response) => onSuccess(response))
             .catch((response) => onError(response))
             .finally(() => console.log('Finally done'))
+    }
+
+
+    function deletePatient(id) {
+        console.log('Deleting patient with id: ', id)
+        axios.delete(`http://localhost:8080/patients/${id}`)
+            .then((response) => onDeleteSuccess(response))
+            .catch((response) => onError(response))
+            .finally(() => console.log('Finally done'))
+    }
+
+    function onDeleteSuccess(response) {
+        console.log(response);
+        setPatient(response.data);
+        navigate("/deleteSuccessful");
     }
 
     function onSuccess(response) {
@@ -54,13 +70,9 @@ export default function ListPatientsApp(){
                                         <td>{patient.name}</td>
                                         <td>{patient.social_number}</td>
 
-                                            <td><Link to="/updatePatient">
-                                            <button className="update-btn">Update Patient</button>
-                                        </Link></td>
+                                        <td><Link to={`/updatePatient/${patient.id}`}><button className="update-btn">Update Patient</button></Link></td>
 
-                                        <td><Link to={`/deletePatient/${patient.id}`}>
-                                            <button className="delete-btn">Delete Patient</button>
-                                        </Link></td>
+                                        <td><button className="delete-btn" onClick={() => deletePatient(patient.id)}>Delete Patient</button></td>
                                     </tr>
                                 )
                             )

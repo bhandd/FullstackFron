@@ -10,7 +10,7 @@ export default function DeletePatientApp(){
 
     function deletePatient(id) {
         console.log('Deleting patient with id: ', id)
-        axios.delete('http://localhost:8080/patient/${id}')
+        axios.delete('http://localhost:8080/patients/${id}')
             .then((response) => onSuccess(response))
             .catch((response) => onError(response))
             .finally(() => console.log('Finally done'))
