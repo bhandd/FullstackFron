@@ -23,8 +23,8 @@ export default function RegisterApp(){
 
 const handleSubmit = (event) => {
     event.preventDefault();
-    // const newUser = { name, social_number, role };
-    // createPatient(newUser);
+     const newUser = { name, email, social_number, role, password };
+     Register(newUser);
 
 
     setName('');
@@ -32,6 +32,7 @@ const handleSubmit = (event) => {
     setRole('Patient');
     setNumber('');
     setPassword('');
+    setConfirmPassword('');
 };
 
 
