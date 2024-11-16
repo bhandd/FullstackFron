@@ -70,8 +70,7 @@ export default function ListPatientsApp(){
                                         <td>{patient.name}</td>
                                         <td>{patient.social_number}</td>
 
-                                        <td><Link to={`/updatePatient/${patient.id}`}><button className="update-btn">Update Patient</button></Link></td>
-
+                                        <td><Link to={`/viewPatient/${patient.id}`}><button className="yellow-button">Info</button></Link></td>
                                         <td><button className="delete-btn" onClick={() => deletePatient(patient.id)}>Delete Patient</button></td>
                                     </tr>
                                 )
