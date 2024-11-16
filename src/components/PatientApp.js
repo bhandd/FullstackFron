@@ -10,6 +10,7 @@ import FooterApp from "./FooterApp";
 import ListStaffApp from "./ListStaff";
 import DeleteSuccessfulApp from "./DeleteSuccessful";
 import ViewPatientApp from "./ViewPatientApp";
+import CreateEntryApp from "./CreateEntry";
 import Register from "./authentication/Register";
 import Login from "./authentication/Login";
 
@@ -28,8 +29,6 @@ export default function PatientApp(){
                     <Route path="/updatePatient/:id" element={<UpdatePatientApp />}></Route>
                     <Route path="/deletePatient" element={<DeletePatientApp />}></Route>
                     <Route path="/deleteSuccessful" element={<DeleteSuccessfulApp />}></Route>
-                    <Route path="/register" element={<Register />} />
-                    <Route path="/login" element={<Login />} />
                 </Routes>
             </BrowserRouter>
             <FooterApp/>
