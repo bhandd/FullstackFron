@@ -124,17 +124,16 @@ button {
   border-radius: 5px;
   cursor: pointer;
   font-size: 1rem;
-  transition: background-color 0.3s ease;
 }
 
 .blue-button {background-color: #007bff;color: #fff}
+.blue-button:hover {background-color: #0056b3; transition: background-color 0.3s ease;}
 .green-button {background-color: #10cd30;color: #fff}
+.green-button:hover {background-color: #009d10; transition: background-color 0.3s ease;}
 .red-button {background-color: #d43020;color: #fff}
+.red-button:hover {background-color: #b42515; transition: background-color 0.3s ease;}
 .yellow-button {background-color: #d4d700;color: #fff}
-
-form button:hover {
-  background-color: #0056b3;
-}
+.yellow-button:hover {background-color: #a48700; transition: background-color 0.3s ease;}
 
 /* Table CSS */
 .table-container {

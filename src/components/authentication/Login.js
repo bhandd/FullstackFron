@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import {Link} from "react-router-dom";
 
 function LoginForm() {
     const [username, setUsername] = useState("");
@@ -79,7 +80,10 @@ function LoginForm() {
                         required
                     />
                 </div>
-                <button type="submit">Login</button>
+                <button className="green-button" type="submit">Login</button>
+                <Link to="/">
+                    <button className="blue-button">Main menu</button>
+                </Link>
             </form>
             <button onClick={fetchProtectedData} style={{ marginTop: "20px" }}>
                 Fetch Protected Data
