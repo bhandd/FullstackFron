@@ -64,10 +64,6 @@ header h1 {
   margin-bottom: 1rem;
 }
 
-.element-spacing {
-  margin: 5px;
-}
-
 nav {
   display: flex;
   justify-content: center;
@@ -171,39 +167,4 @@ button {
 
 .delete-btn:hover {
   background-color: #c82333;
-}
-
-/* Date fields */
-input[type="datetime-local"] {
-  width: 100%; /* Make it responsive */
-  padding: 8px 12px; /* Add some padding */
-  border: 1px solid #ccc; /* Add a subtle border */
-  border-radius: 4px; /* Rounded corners */
-  font-size: 16px; /* Make text readable */
-  color: #333;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
-}
-
-input[type="datetime-local"]:hover {
-  border-color: #007bff; /* Change border color */
-  box-shadow: 2px 2px 5px rgba(0, 123, 255, 0.3); /* Add blue shadow */
-}
-
-input[type="datetime-local"]:focus {
-  outline: none; /* Remove default outline */
-  border-color: #007bff; /* Highlight border */
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Blue glow */
-}
-
-/* Text area */
-textarea {
-  width: 100%; /* Make it responsive */
-  min-height: 100px; /* Set a default height */
-  padding: 10px; /* Add padding inside the field */
-  border: 1px solid #ccc; /* Subtle border */
-  border-radius: 4px; /* Rounded corners */
-  font-size: 16px; /* Make text readable */
-  color: #333; /* Text color */
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Add slight shadow */
-  resize: vertical; /* Allow vertical resizing only */
 }

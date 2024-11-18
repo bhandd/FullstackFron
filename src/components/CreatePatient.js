@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState} from "react";
 import {Link} from "react-router-dom";
 
 export default function CreatePatientApp(){
@@ -9,7 +9,7 @@ export default function CreatePatientApp(){
     const [social_number, setNumber] = useState('');
 
     function createPatient(newUser) {
-        console.log('Creating new user:', newUser);
+        console.log('Creating new patient:', newUser);
         axios.post('http://localhost:8080/patients', newUser)
             .then(response => onSuccess(response))
             .catch(error => onError(error))
@@ -59,7 +59,7 @@ export default function CreatePatientApp(){
                         onChange={(e) => setNumber(e.target.value)}
                         required/>
                 </div>
-                <button className="green-button" type="submit">Create User</button>
+                <button className="blue-button" type="submit">Create Patient</button>
                 <Link to="/">
                     <button className="blue-button">Main menu</button>
                 </Link>

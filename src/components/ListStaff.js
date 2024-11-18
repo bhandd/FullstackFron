@@ -60,8 +60,8 @@ export default function ListStaffApp(){
                                         <td>{s.name}</td>
                                         <td>{s.role}</td>
                                         <td>{s.social_number}</td>
-                                        <td><Link to={`/createMessage/${s.id}`}>
-                                            <button className="blue-button">Message</button>
+                                        <td><Link to="/">
+                                            <button className="update-btn">Update Staff</button>
                                         </Link></td>
                                         <td><Link to="/">
                                             <button className="delete-btn">Delete Staff</button>

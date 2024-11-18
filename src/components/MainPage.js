@@ -14,13 +14,7 @@ export default function MainPage() {
                     <button className="blue-button">List Patients</button>
                 </Link>
                 <Link to="/createPatient">
-                    <button className="blue-button">Create User</button>
-                </Link>
-                <Link to="/Register">
-                    <button className="blue-button">Register</button>
-                </Link>
-                <Link to="/Login">
-                    <button className="blue-button">Login</button>
+                    <button className="blue-button">Create Patient</button>
                 </Link>
             </nav>
         </div>
