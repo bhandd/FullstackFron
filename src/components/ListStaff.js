@@ -10,13 +10,8 @@ export default function ListStaffApp(){
     )
 
     function getStaff() {
-        const token = localStorage.getItem('token');
-        console.log('Fetching Patients ', token)
-        axios.get('http://localhost:8080/staff', {
-            headers: {
-                Authorization: `Bearer ${token}`, // Add the token to the Authorization header
-            },
-        })
+        console.log('Fetching Patients')
+        axios.get('http://localhost:8080/staff')
             .then((response) => onSuccess(response))
             .catch((response) => onError(response))
             .finally(() => console.log('Finally done'))

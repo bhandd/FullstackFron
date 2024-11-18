@@ -1,8 +1,9 @@
 import axios from "axios";
 import React, {useEffect, useState} from "react";
-import {Link, useParams} from "react-router-dom";
+import {Link, useParams, useNavigate} from "react-router-dom";
 
 export default function ViewPatientApp(){
+    const navigate = useNavigate();
     const { id } = useParams();
     const [patient, setPatient] = useState([]);
     const [journalEntries, setEntries] = useState([]);
@@ -13,16 +14,8 @@ export default function ViewPatientApp(){
             await getEntries(id);
             // Add more function calls here as needed
         };
-
         fetchData();
     }, [id]);
-
-    /*useEffect(
-        () => getPatient(), []
-    )
-    useEffect(
-        () => getEntries(), []
-    )*/
 
     function getPatient(id) {
         console.log('Fetching patient with id: ', id)
@@ -61,7 +54,7 @@ export default function ViewPatientApp(){
             </header>
             <main>
                 <div>
-                    <p><strong>ID:</strong>{patient.id}</p>
+                    <p><strong>ID:</strong>{id}</p>
                     <p><strong>Social number:</strong>{patient.social_number}</p>
                 </div>
                 <div className="table-container">
@@ -93,8 +86,11 @@ export default function ViewPatientApp(){
                         </tbody>
                     </table>
                 </div>
+                <Link to={`/createEntry/${id}`}>
+                    <button className="green-button element-spacing">Add Entry</button>
+                </Link>
                 <Link to="/">
-                    <button className="button blue-button">Main menu</button>
+                    <button className="button blue-button element-spacing">Main menu</button>
                 </Link>
             </main>
         </div>
