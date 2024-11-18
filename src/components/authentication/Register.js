@@ -92,11 +92,11 @@ const handleSubmit = (event) => {
 
 
 function onSuccess(response) {
-    console.log('Patient created successfully:', response.data);
-    alert('Patient created successfully!');
+    console.log('User created successfully:', response.data);
+    alert('New user created successfully:!');
 }
 
 function onError(error) {
-    console.error('Error creating patient:', error);
-    alert('Failed to create patient. Please try again.');
+    console.error('Error creating new user:', error);
+    alert('Failed to create user. Please try again.');
 }
