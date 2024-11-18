@@ -26,7 +26,7 @@ export default function PatientApp(){
                     <Route path="/updatePatient/:id" element={<UpdatePatientApp />}></Route>
                     <Route path="/deletePatient" element={<DeletePatientApp />}></Route>
                     <Route path="/deleteSuccessful" element={<DeleteSuccessfulApp />}></Route>
-                    <Route path="/createEntry/:id" element={<CreateEntryApp />}></Route>
+
 
                 </Routes>
             </BrowserRouter>
