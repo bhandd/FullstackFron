@@ -27,7 +27,7 @@ export default function ViewPatientApp(){
 
     function getEntries(id) {
         console.log('Fetching entry with id: ', id)
-        axios.get(`http://localhost:8080/entries/${id}`)
+        axios.get(`http://localhost:8080/entries/p${id}`)
             .then((response) => onEntrySuccess(response))
             .catch((response) => onError(response))
             .finally(() => console.log('Finally done'))

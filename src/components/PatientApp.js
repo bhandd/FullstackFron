@@ -12,6 +12,7 @@ import DeleteSuccessfulApp from "./DeleteSuccessful";
 import ViewPatientApp from "./ViewPatientApp";
 import CreateEntryApp from "./CreateEntry";
 import CreateMessageApp from "./CreateMessage";
+import ViewMessagesApp from "./ViewMessages";
 
 export default function PatientApp(){
     return (
@@ -26,6 +27,7 @@ export default function PatientApp(){
                     <Route path="/createEntry/:id" element={<CreateEntryApp />}></Route>
                     <Route path="/createMessage/:id" element={<CreateMessageApp />}></Route>
                     <Route path="/listPatients" element={<ListPatientsApp />}></Route>
+                    <Route path="/viewMessages/:id" element={<ViewMessagesApp />}></Route>
                     <Route path="/viewPatient/:id" element={<ViewPatientApp />}></Route>
                     <Route path="/updatePatient/:id" element={<UpdatePatientApp />}></Route>
                     <Route path="/deletePatient" element={<DeletePatientApp />}></Route>
