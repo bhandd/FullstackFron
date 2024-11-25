@@ -5,7 +5,6 @@ import CreatePatientApp from "./CreatePatient";
 import ListPatientsApp from "./ListPatients";
 import UpdatePatientApp from "./UpdatePatient";
 import DeletePatientApp from "./DeletePatient";
-
 import FooterApp from "./FooterApp";
 import ListStaffApp from "./ListStaff";
 import DeleteSuccessfulApp from "./DeleteSuccessful";
@@ -14,7 +13,17 @@ import CreateEntryApp from "./CreateEntry";
 import CreateMessageApp from "./CreateMessage";
 import ViewMessagesApp from "./ViewMessages";
 
+import useToken from "../login/useToken";
+import Login from "../login/Login";
+
 export default function PatientApp(){
+    const { token, setToken } = useToken();
+
+    if(token == null) {
+        console.log("Token is unfortunately: ", token)
+        return <Login setToken={setToken} />
+    }
+
     return (
         <div className="PatientApp container">
             <BrowserRouter>
