@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import axios from "axios";
 
 async function loginUser(credentials) {
-    console.log(credentials)
     try {
         const response = await axios.post('http://localhost:8080/login', credentials, {
             headers: {
@@ -17,15 +16,13 @@ async function loginUser(credentials) {
     }
 }
 
-async function registerUser(form) {
-    console.log(form)
+async function registerUser(credentials) {
     try {
-        const response = await axios.post('http://localhost:8080/register', form, {
+        const response = await axios.post('http://localhost:8080/register', credentials, {
             headers: {
                 'Content-Type': 'application/json'
             }
         });
-        onSuccess(response)
         return response.data;
     } catch (error) {
         onError(error);
@@ -36,11 +33,11 @@ export default function Login({ setToken }) {
     const [username, setUserName] = useState();
     const [password, setPassword] = useState();
 
-    const [registerUserName, setRegisterUserName] = useState();
-    const [registerPassword, setRegisterPassword] = useState();
-    const [registerEmail, setRegisterEmail] = useState();
-    const [registerSocialNumber, setRegisterSocialNumber] = useState();
-    const [registerRole, setRegisterRole] = useState();
+    const [registerUserName, setRegisterUserName] = useState('');
+    const [registerPassword, setRegisterPassword] = useState('');
+    const [registerSocialNumber, setRegisterSocialNumber] = useState('');
+    const [registerEmail, setRegisterEmail] = useState('');
+    const [registerRole, setRegisterRole] = useState('');
 
     const handleSubmit = async e => {
         e.preventDefault();
@@ -54,16 +51,14 @@ export default function Login({ setToken }) {
 
     const handleRegisterSubmit = async e => {
         e.preventDefault();
-        console.log(registerUserName + ", " + registerPassword + ", " + registerEmail + ", " + registerSocialNumber + ", " + registerRole)
-        const token = await registerUser({
-            registerUserName: registerUserName,
-            registerPassword: registerPassword,
-            registerEmail: registerEmail,
-            registerSocialNumber: registerSocialNumber,
-            registerRole: registerRole
+        await registerUser({
+            username: registerUserName,
+            password: registerPassword,
+            email: registerEmail,
+            social_number: registerSocialNumber,
+            role: registerRole,
         });
-        if (token != null && token != undefined) setToken(token);
-        console.log("The token is: ", token)
+        // Add registration logic here (e.g., API call)
     };
 
     return (
