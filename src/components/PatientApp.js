@@ -15,6 +15,7 @@ import ViewMessagesApp from "./ViewMessages";
 
 import useToken from "../login/useToken";
 import Login from "../login/Login";
+import Logout from "../login/Logout";
 
 export default function PatientApp(){
     const { token, setToken } = useToken();
@@ -27,6 +28,7 @@ export default function PatientApp(){
     return (
         <div className="PatientApp container">
             <BrowserRouter>
+                <Logout/>
                 <Routes>
                     <Route path="/" element={<MainPage />} />
 
