@@ -108,6 +108,7 @@ form label {
 
 form input[type="text"],
 form input[type="number"],
+form input[type="password"],
 form select {
   width: 100%;
   padding: 10px;
@@ -206,4 +207,13 @@ textarea {
   color: #333; /* Text color */
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Add slight shadow */
   resize: vertical; /* Allow vertical resizing only */
+}
+
+/* Login / Register */
+.login-container,
+.registration-container {
+  width: 45%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
